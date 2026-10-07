@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patrimonio de Osuna</title>
+</head>
+
+<body>
+
+    <h1>Patrimonio histórico de Osuna</h1>
+
+    <label for="filtro">Buscar patrimonio:</label>
+    <input type="text" id="filtro" placeholder="Escribe un nombre...">
+
+    <br><br>
+
+    <table border="1" id="tablaPatrimonio">
+        <tr>
+            <th>Nombre</th>
+            <th>Localidad</th>
+            <th>Tipo</th>
+        </tr>
+
+        <tr>
+            <td>Universidad de Osuna</td>
+            <td>Osuna</td>
+            <td>Edificio histórico</td>
+        </tr>
+
+        <tr>
+            <td>Colegiata de Nuestra Señora de la Asunción</td>
+            <td>Osuna</td>
+            <td>Monumento</td>
+        </tr>
+
+        <tr>
+            <td>Coto de las Canteras</td>
+            <td>Osuna</td>
+            <td>Yacimiento histórico</td>
+        </tr>
+    </table>
+
+    <script>
+        const filtro = document.getElementById("filtro");
+        const tabla = document.getElementById("tablaPatrimonio");
+
+        filtro.addEventListener("keyup", function() {
+            const texto = filtro.value.toLowerCase();
+            const filas = tabla.getElementsByTagName("tr");
+
+            for (let i = 1; i < filas.length; i++) {
+                const contenido = filas[i].textContent.toLowerCase();
+
+                if (contenido.includes(texto)) {
+                    filas[i].style.display = "";
+                } else {
+                    filas[i].style.display = "none";
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
